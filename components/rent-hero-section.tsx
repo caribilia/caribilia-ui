@@ -23,11 +23,11 @@ export function RentHeroSection() {
                 <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
                 <Input
                   placeholder="Ingresa ciudad, barrio o código postal"
-                  className="pl-10 h-12 text-lg border-slate-200"
+                  className="pl-10 h-12 text-lg border-slate-200 bg-white"
                 />
               </div>
               <Select>
-                <SelectTrigger className="h-12 text-lg">
+                <SelectTrigger className="h-12 text-lg border-slate-200 bg-white">
                   <SelectValue placeholder="Alquiler Mensual" />
                 </SelectTrigger>
                 <SelectContent>
@@ -39,7 +39,7 @@ export function RentHeroSection() {
                 </SelectContent>
               </Select>
               <Select>
-                <SelectTrigger className="h-12 text-lg">
+                <SelectTrigger className="h-12 text-lg border-slate-200 bg-white">
                   <SelectValue placeholder="Fecha de Mudanza" />
                 </SelectTrigger>
                 <SelectContent>
