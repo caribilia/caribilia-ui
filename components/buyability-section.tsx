@@ -42,7 +42,7 @@ export function BuyabilitySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800 mb-4">
-            Encuentra Casas Que Puedas Costear con ComprAbilidad™
+            Encuentra casas que puedas costear con ComprAbilidad™
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Navega por tu presupuesto mensual. Destacaremos las casas que se ajusten a tu rango de precios y te

@@ -1,27 +1,27 @@
 import { Button } from "@/components/ui/button"
-import { Home, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Header() {
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Home className="h-8 w-8 text-cyan-800" />
-            <span className="text-2xl font-serif font-bold text-cyan-800">Caribilia</span>
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/caribilia-isotipo.jpg" alt="Caribilia" width={32} height={32} className="rounded-sm" />
+            <span className="text-2xl font-serif font-bold text-primary">Caribilia</span>
           </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/rent" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
+            <Link href="/alquilar" className="text-muted-foreground hover:text-primary font-medium transition-colors">
               Alquilar
             </Link>
-            <Link href="/sell" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
+            <Link href="/vender" className="text-muted-foreground hover:text-primary font-medium transition-colors">
               Vender
             </Link>
-            <a href="#" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
+            <a href="#" className="text-muted-foreground hover:text-primary font-medium transition-colors">
               Agentes
             </a>
           </nav>
@@ -31,7 +31,7 @@ export function Header() {
             <Button variant="ghost" className="hidden sm:inline-flex">
               Iniciar Sesión
             </Button>
-            <Button className="bg-cyan-800 hover:bg-cyan-900 text-white">Comenzar</Button>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Comenzar</Button>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
             </Button>

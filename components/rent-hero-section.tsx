@@ -9,7 +9,7 @@ export function RentHeroSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-4xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Encuentra tu Próximo Alquiler
+            Encuentra tu próximo alquiler
           </h1>
           <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
             Descubre apartamentos, casas y condos en alquiler. Desde estudios hasta casas de lujo, encuentra el alquiler
@@ -53,7 +53,7 @@ export function RentHeroSection() {
             </div>
             <Button className="w-full h-12 text-lg bg-emerald-700 hover:bg-emerald-800">
               <Search className="mr-2 h-5 w-5" />
-              Buscar Alquileres
+              Buscar alquileres
             </Button>
           </div>
         </div>

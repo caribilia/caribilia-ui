@@ -8,7 +8,7 @@ export function BuyHeroSection() {
     <section className="relative bg-gradient-to-br from-cyan-50 to-slate-100 py-16 lg:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-4xl lg:text-6xl font-bold text-slate-900 mb-6">Encuentra tu Hogar Perfecto</h1>
+          <h1 className="font-serif text-4xl lg:text-6xl font-bold text-slate-900 mb-6">Encuentra tu hogar perfecto</h1>
           <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
             Descubre miles de propiedades en venta. Desde casas para principiantes hasta villas de lujo, te ayudamos a
             encontrar el lugar perfecto para llamar hogar.
@@ -52,7 +52,7 @@ export function BuyHeroSection() {
             </div>
             <Button className="w-full h-12 text-lg bg-cyan-800 hover:bg-cyan-900">
               <Search className="mr-2 h-5 w-5" />
-              Buscar Propiedades
+              Buscar propiedades
             </Button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, MapPin } from "lucide-react"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -10,7 +11,7 @@ export function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl lg:text-7xl font-serif font-bold text-slate-800 mb-6 leading-tight">
-            Encuentra Tu Hogar Ideal Hoy
+            Encuentra tu hogar ideal hoy
           </h1>
           <p className="text-xl lg:text-2xl text-slate-600 mb-12 leading-relaxed">
             Explora las mejores propiedades adaptadas a tus necesidades con recomendaciones personalizadas y orientación
@@ -36,12 +37,16 @@ export function HeroSection() {
 
           {/* Quick Links */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
-              Alquilar una Casa
-            </Button>
-            <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
-              Vender Tu Casa
-            </Button>
+            <Link href="/alquilar">
+              <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
+                Alquilar una Casa
+              </Button>
+            </Link>
+            <Link href="/vender">
+              <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
+                Vender Tu Casa
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ const rentals = [
     baths: 1,
     sqft: "650",
     available: "Available Now",
-    leaseTerms: "Month-to-Month",
+    leaseTerms: "6-12 months",
     petFriendly: true,
     type: "Studio",
   },
@@ -178,7 +178,7 @@ export function RentPropertyGrid() {
                   </Badge>
                 </div>
 
-                <Button className="w-full bg-emerald-700 hover:bg-emerald-800">Contact Property</Button>
+                <Button className="w-full bg-emerald-700 hover:bg-emerald-800">Contactar Propiedad</Button>
               </div>
             </CardContent>
           </Card>

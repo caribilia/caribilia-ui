@@ -6,45 +6,45 @@ import { Heart, Bed, Bath, Square, ChevronLeft, ChevronRight } from "lucide-reac
 const properties = [
   {
     id: 1,
-    price: "US$798,000",
+    price: "US$650,000",
     beds: 3,
     baths: 2,
-    sqft: "1,847",
-    address: "Bella Vista, Santo Domingo, República Dominicana",
-    image: "/modern-single-family-home.png",
+    sqft: "150",
+    address: "Los Cacicazgos, Santo Domingo, Distrito Nacional",
+    image: "/casa-cacicazgos.png",
     status: "En Venta",
     isNew: true,
   },
   {
     id: 2,
-    price: "US$1,319,000",
+    price: "US$1,200,000",
     beds: 4,
     baths: 3,
-    sqft: "2,156",
-    address: "Punta Cana, La Altagracia, República Dominicana",
-    image: "/contemporary-two-story-house.png",
+    sqft: "220",
+    address: "Playa Dorada, Puerto Plata",
+    image: "/villa-puerto-plata.png",
     status: "En Venta",
     isNew: false,
   },
   {
     id: 3,
-    price: "US$1,100,000",
+    price: "US$890,000",
     beds: 3,
     baths: 2.5,
-    sqft: "1,923",
-    address: "Samaná, República Dominicana",
-    image: "/modern-ranch-home.png",
+    sqft: "180",
+    address: "Las Terrenas, Samaná",
+    image: "/casa-las-terrenas.png",
     status: "En Venta",
     isNew: true,
   },
   {
     id: 4,
-    price: "US$1,800,000",
+    price: "US$2,100,000",
     beds: 5,
     baths: 4,
-    sqft: "3,245",
-    address: "Puerto Plata, República Dominicana",
-    image: "/placeholder-qwboq.png",
+    sqft: "350",
+    address: "Casa de Campo, La Romana",
+    image: "/mansion-casa-campo.png",
     status: "En Venta",
     isNew: false,
   },
@@ -57,7 +57,7 @@ export function PropertyListings() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800 mb-2">
-              Descubre Propiedades en Tu Área
+              Descubre propiedades en tu área
             </h2>
             <p className="text-lg text-slate-600">Propiedades destacadas en República Dominicana</p>
           </div>
@@ -119,7 +119,7 @@ export function PropertyListings() {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="bg-cyan-800 hover:bg-cyan-900 text-white px-8 py-3 text-lg">Comenzar Búsqueda</Button>
+          <Button className="bg-cyan-800 hover:bg-cyan-900 text-white px-8 py-3 text-lg">Comenzar búsqueda</Button>
         </div>
       </div>
     </section>
