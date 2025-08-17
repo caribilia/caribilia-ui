@@ -10,7 +10,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Home className="h-8 w-8 text-cyan-800" />
-            <span className="text-2xl font-serif font-bold text-cyan-800">ModernEstate</span>
+            <span className="text-2xl font-serif font-bold text-cyan-800">Caribilia</span>
           </Link>
 
           {/* Navigation */}

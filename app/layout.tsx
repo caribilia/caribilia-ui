@@ -18,7 +18,7 @@ const sourceSans = Source_Sans_Pro({
 })
 
 export const metadata: Metadata = {
-  title: "ModernEstate - Find Your Dream Home",
+  title: "Caribilia - Find Your Dream Home",
   description: "Discover the perfect property with our modern real estate platform",
   generator: "v0.app",
 }

@@ -9,7 +9,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <Home className="h-8 w-8 text-cyan-400" />
-              <span className="text-2xl font-serif font-bold">ModernEstate</span>
+              <span className="text-2xl font-serif font-bold">Caribilia</span>
             </div>
             <p className="text-slate-300 leading-relaxed max-w-md">
               Your trusted partner in finding the perfect home. We combine cutting-edge technology with personalized
@@ -89,7 +89,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm">© 2024 ModernEstate. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">© 2024 Caribilia. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">
               Privacy Policy
