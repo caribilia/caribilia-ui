@@ -12,8 +12,8 @@ export function Footer() {
               <span className="text-2xl font-serif font-bold">Caribilia</span>
             </div>
             <p className="text-slate-300 leading-relaxed max-w-md">
-              Your trusted partner in finding the perfect home. We combine cutting-edge technology with personalized
-              service to make your real estate journey seamless.
+              Tu socio de confianza para encontrar el hogar perfecto. Combinamos tecnología de vanguardia con servicio
+              personalizado para hacer tu experiencia inmobiliaria perfecta.
             </p>
             <div className="flex gap-4 mt-6">
               <Facebook className="h-5 w-5 text-slate-400 hover:text-cyan-400 cursor-pointer transition-colors" />
@@ -25,31 +25,21 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Buy
+                  Alquilar
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Rent
+                  Vender
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Sell
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Find Agents
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Get Loans
+                  Encontrar Agentes
                 </a>
               </li>
             </ul>
@@ -57,31 +47,31 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Resources</h3>
+            <h3 className="font-semibold text-lg mb-4">Recursos</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Market Trends
+                  Tendencias del Mercado
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Neighborhood Guides
+                  Guías de Barrios
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Home Values
+                  Valores de Propiedades
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Mortgage Calculator
+                  Calculadora Hipotecaria
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                  Help Center
+                  Centro de Ayuda
                 </a>
               </li>
             </ul>
@@ -89,16 +79,16 @@ export function Footer() {
         </div>
 
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm">© 2024 Caribilia. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">© 2024 Caribilia. Todos los derechos reservados.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">
-              Privacy Policy
+              Política de Privacidad
             </a>
             <a href="#" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">
-              Terms of Service
+              Términos de Servicio
             </a>
             <a href="#" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">
-              Contact
+              Contacto
             </a>
           </div>
         </div>

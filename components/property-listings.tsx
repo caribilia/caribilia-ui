@@ -6,46 +6,46 @@ import { Heart, Bed, Bath, Square, ChevronLeft, ChevronRight } from "lucide-reac
 const properties = [
   {
     id: 1,
-    price: "$798,000",
+    price: "US$798,000",
     beds: 3,
     baths: 2,
     sqft: "1,847",
-    address: "1234 Oak Street, Santa Clara, CA 95050",
+    address: "Bella Vista, Santo Domingo, República Dominicana",
     image: "/modern-single-family-home.png",
-    status: "For Sale",
+    status: "En Venta",
     isNew: true,
   },
   {
     id: 2,
-    price: "$1,319,000",
+    price: "US$1,319,000",
     beds: 4,
     baths: 3,
     sqft: "2,156",
-    address: "5678 Pine Avenue, Santa Clara, CA 95054",
+    address: "Punta Cana, La Altagracia, República Dominicana",
     image: "/contemporary-two-story-house.png",
-    status: "For Sale",
+    status: "En Venta",
     isNew: false,
   },
   {
     id: 3,
-    price: "$1,100,000",
+    price: "US$1,100,000",
     beds: 3,
     baths: 2.5,
     sqft: "1,923",
-    address: "9012 Elm Drive, Santa Clara, CA 95050",
+    address: "Samaná, República Dominicana",
     image: "/modern-ranch-home.png",
-    status: "For Sale",
+    status: "En Venta",
     isNew: true,
   },
   {
     id: 4,
-    price: "$1,800,000",
+    price: "US$1,800,000",
     beds: 5,
     baths: 4,
     sqft: "3,245",
-    address: "3456 Maple Court, Santa Clara, CA 95051",
+    address: "Puerto Plata, República Dominicana",
     image: "/placeholder-qwboq.png",
-    status: "For Sale",
+    status: "En Venta",
     isNew: false,
   },
 ]
@@ -57,9 +57,9 @@ export function PropertyListings() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800 mb-2">
-              Discover Listings in Your Area
+              Descubre Propiedades en Tu Área
             </h2>
-            <p className="text-lg text-slate-600">Trending homes in Santa Clara, CA</p>
+            <p className="text-lg text-slate-600">Propiedades destacadas en República Dominicana</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="icon">
@@ -84,7 +84,7 @@ export function PropertyListings() {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-3 left-3 flex gap-2">
-                  {property.isNew && <Badge className="bg-cyan-800 text-white">New</Badge>}
+                  {property.isNew && <Badge className="bg-cyan-800 text-white">Nuevo</Badge>}
                   <Badge variant="secondary" className="bg-white/90 text-slate-700">
                     {property.status}
                   </Badge>
@@ -100,15 +100,15 @@ export function PropertyListings() {
                   <div className="flex items-center gap-4 text-sm text-slate-600">
                     <div className="flex items-center gap-1">
                       <Bed className="h-4 w-4" />
-                      <span>{property.beds} beds</span>
+                      <span>{property.beds} hab</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Bath className="h-4 w-4" />
-                      <span>{property.baths} baths</span>
+                      <span>{property.baths} baños</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Square className="h-4 w-4" />
-                      <span>{property.sqft} sqft</span>
+                      <span>{property.sqft} m²</span>
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export function PropertyListings() {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="bg-cyan-800 hover:bg-cyan-900 text-white px-8 py-3 text-lg">Start Searching</Button>
+          <Button className="bg-cyan-800 hover:bg-cyan-900 text-white px-8 py-3 text-lg">Comenzar Búsqueda</Button>
         </div>
       </div>
     </section>

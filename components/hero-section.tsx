@@ -10,11 +10,11 @@ export function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl lg:text-7xl font-serif font-bold text-slate-800 mb-6 leading-tight">
-            Find Your Dream Home Today
+            Encuentra Tu Hogar Ideal Hoy
           </h1>
           <p className="text-xl lg:text-2xl text-slate-600 mb-12 leading-relaxed">
-            Explore the best properties tailored to your needs with personalized recommendations and expert guidance
-            every step of the way.
+            Explora las mejores propiedades adaptadas a tus necesidades con recomendaciones personalizadas y orientación
+            experta en cada paso del camino.
           </p>
 
           {/* Search Bar */}
@@ -23,13 +23,13 @@ export function HeroSection() {
               <div className="flex-1 relative">
                 <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
                 <Input
-                  placeholder="Enter address, neighborhood, city or ZIP code"
+                  placeholder="Ingresa dirección, barrio, ciudad o código postal"
                   className="pl-12 h-14 text-lg border-gray-200 focus:border-cyan-800 focus:ring-cyan-800"
                 />
               </div>
               <Button className="h-14 px-8 bg-cyan-800 hover:bg-cyan-900 text-white text-lg font-semibold">
                 <Search className="h-5 w-5 mr-2" />
-                Search
+                Buscar
               </Button>
             </div>
           </div>
@@ -37,13 +37,10 @@ export function HeroSection() {
           {/* Quick Links */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
-              Buy a Home
+              Alquilar una Casa
             </Button>
             <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
-              Rent a Home
-            </Button>
-            <Button variant="outline" className="border-cyan-200 text-cyan-800 hover:bg-cyan-50 bg-transparent">
-              Sell Your Home
+              Vender Tu Casa
             </Button>
           </div>
         </div>

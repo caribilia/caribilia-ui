@@ -11,30 +11,62 @@ export function PropertyFilters() {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="font-serif text-xl">Filters</CardTitle>
+          <CardTitle className="font-serif text-xl">Filtros</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
+          <div>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Provincia/Región</label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Seleccionar provincia" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="santo-domingo">Santo Domingo</SelectItem>
+                <SelectItem value="punta-cana">Punta Cana</SelectItem>
+                <SelectItem value="samana">Samaná</SelectItem>
+                <SelectItem value="puerto-plata">Puerto Plata</SelectItem>
+                <SelectItem value="la-romana">La Romana</SelectItem>
+                <SelectItem value="santiago">Santiago</SelectItem>
+                <SelectItem value="cap-cana">Cap Cana</SelectItem>
+                <SelectItem value="bavaro">Bávaro</SelectItem>
+                <SelectItem value="jarabacoa">Jarabacoa</SelectItem>
+                <SelectItem value="constanza">Constanza</SelectItem>
+                <SelectItem value="las-terrenas">Las Terrenas</SelectItem>
+                <SelectItem value="cabarete">Cabarete</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           {/* Price Range */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Price Range</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Rango de Precio</label>
             <div className="space-y-3">
-              <Slider defaultValue={[300000, 800000]} max={2000000} min={0} step={25000} className="w-full" />
+              <Slider defaultValue={[150000, 400000]} max={2000000} min={0} step={25000} className="w-full" />
               <div className="flex justify-between text-sm text-slate-600">
-                <span>$300K</span>
-                <span>$800K</span>
+                <span>US$150K</span>
+                <span>US$400K</span>
               </div>
             </div>
           </div>
 
           {/* Property Type */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Property Type</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Tipo de Propiedad</label>
             <div className="space-y-2">
-              {["Single Family", "Condo", "Townhouse", "Multi-Family"].map((type) => (
-                <div key={type} className="flex items-center space-x-2">
-                  <Checkbox id={type} />
-                  <label htmlFor={type} className="text-sm text-slate-600">
-                    {type}
+              {[
+                { id: "apartamento", label: "Apartamento" },
+                { id: "villa", label: "Villa" },
+                { id: "casa", label: "Casa" },
+                { id: "penthouse", label: "Penthouse" },
+                { id: "terreno", label: "Terreno" },
+                { id: "proyecto", label: "Proyecto en Construcción" },
+                { id: "alquiler-vacacional", label: "Alquiler Vacacional" },
+                { id: "comercial", label: "Comercial" },
+              ].map((type) => (
+                <div key={type.id} className="flex items-center space-x-2">
+                  <Checkbox id={type.id} />
+                  <label htmlFor={type.id} className="text-sm text-slate-600">
+                    {type.label}
                   </label>
                 </div>
               ))}
@@ -44,13 +76,29 @@ export function PropertyFilters() {
           {/* Bedrooms & Bathrooms */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-semibold text-slate-700 mb-2 block">Bedrooms</label>
+              <label className="text-sm font-semibold text-slate-700 mb-2 block">Habitaciones</label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Any" />
+                  <SelectValue placeholder="Cualquiera" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="any">Cualquiera</SelectItem>
+                  <SelectItem value="1">1+</SelectItem>
+                  <SelectItem value="2">2+</SelectItem>
+                  <SelectItem value="3">3+</SelectItem>
+                  <SelectItem value="4">4+</SelectItem>
+                  <SelectItem value="5">5+</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label className="text-sm font-semibold text-slate-700 mb-2 block">Baños</label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Cualquiera" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="any">Cualquiera</SelectItem>
                   <SelectItem value="1">1+</SelectItem>
                   <SelectItem value="2">2+</SelectItem>
                   <SelectItem value="3">3+</SelectItem>
@@ -58,63 +106,58 @@ export function PropertyFilters() {
                 </SelectContent>
               </Select>
             </div>
-            <div>
-              <label className="text-sm font-semibold text-slate-700 mb-2 block">Bathrooms</label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Any" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="any">Any</SelectItem>
-                  <SelectItem value="1">1+</SelectItem>
-                  <SelectItem value="2">2+</SelectItem>
-                  <SelectItem value="3">3+</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
           </div>
 
           {/* Square Footage */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Square Footage</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Metros Cuadrados</label>
             <div className="grid grid-cols-2 gap-2">
-              <Input placeholder="Min" />
-              <Input placeholder="Max" />
+              <Input placeholder="Mínimo" />
+              <Input placeholder="Máximo" />
             </div>
           </div>
 
           {/* Features */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Features</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Características</label>
             <div className="space-y-2">
-              {["Pool", "Garage", "Fireplace", "Hardwood Floors", "Updated Kitchen"].map((feature) => (
-                <div key={feature} className="flex items-center space-x-2">
-                  <Checkbox id={feature} />
-                  <label htmlFor={feature} className="text-sm text-slate-600">
-                    {feature}
+              {[
+                { id: "piscina", label: "Piscina" },
+                { id: "garaje", label: "Garaje" },
+                { id: "aire-acondicionado", label: "Aire Acondicionado" },
+                { id: "vista-al-mar", label: "Vista al Mar" },
+                { id: "seguridad", label: "Seguridad 24/7" },
+                { id: "amueblado", label: "Amueblado" },
+                { id: "terraza", label: "Terraza" },
+                { id: "jardin", label: "Jardín" },
+              ].map((feature) => (
+                <div key={feature.id} className="flex items-center space-x-2">
+                  <Checkbox id={feature.id} />
+                  <label htmlFor={feature.id} className="text-sm text-slate-600">
+                    {feature.label}
                   </label>
                 </div>
               ))}
             </div>
           </div>
 
-          <Button className="w-full bg-cyan-800 hover:bg-cyan-900">Apply Filters</Button>
+          <Button className="w-full bg-cyan-800 hover:bg-cyan-900">Aplicar Filtros</Button>
         </CardContent>
       </Card>
 
       {/* Active Filters */}
       <Card>
         <CardHeader>
-          <CardTitle className="font-serif text-lg">Active Filters</CardTitle>
+          <CardTitle className="font-serif text-lg">Filtros Activos</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary" className="bg-cyan-100 text-cyan-800">
-              $300K - $800K
+              US$150K - US$400K
               <button className="ml-1 text-cyan-600 hover:text-cyan-800">×</button>
             </Badge>
             <Badge variant="secondary" className="bg-cyan-100 text-cyan-800">
-              3+ Bedrooms
+              3+ Habitaciones
               <button className="ml-1 text-cyan-600 hover:text-cyan-800">×</button>
             </Badge>
           </div>

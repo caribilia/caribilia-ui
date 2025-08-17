@@ -26,7 +26,7 @@ export default function RentPage() {
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">{rentalProperties.length} Rentals Available</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{rentalProperties.length} Alquileres Disponibles</h1>
 
           <div className="flex items-center gap-2">
             <Button
@@ -36,7 +36,7 @@ export default function RentPage() {
               className="flex items-center gap-2"
             >
               <Grid3X3 className="h-4 w-4" />
-              Grid
+              Cuadrícula
             </Button>
             <Button
               variant={viewMode === "list" ? "default" : "outline"}
@@ -45,7 +45,7 @@ export default function RentPage() {
               className="flex items-center gap-2"
             >
               <List className="h-4 w-4" />
-              List
+              Lista
             </Button>
             <Button
               variant={viewMode === "map" ? "default" : "outline"}
@@ -54,7 +54,7 @@ export default function RentPage() {
               className="flex items-center gap-2"
             >
               <MapIcon className="h-4 w-4" />
-              Map
+              Mapa
             </Button>
           </div>
         </div>

@@ -6,27 +6,28 @@ export function RentalGuide() {
   const steps = [
     {
       icon: Search,
-      title: "Search & Filter",
-      description: "Browse available rentals and use filters to find properties that match your needs.",
-      action: "Start Searching",
+      title: "Buscar y Filtrar",
+      description:
+        "Navega por los alquileres disponibles y usa filtros para encontrar propiedades que coincidan con tus necesidades.",
+      action: "Comenzar Búsqueda",
     },
     {
       icon: FileText,
-      title: "Apply Online",
-      description: "Submit rental applications with required documents and background checks.",
-      action: "Learn About Applications",
+      title: "Aplicar en Línea",
+      description: "Envía solicitudes de alquiler con los documentos requeridos y verificaciones de antecedentes.",
+      action: "Sobre Aplicaciones",
     },
     {
       icon: Shield,
-      title: "Get Approved",
-      description: "Complete the approval process including credit checks and references.",
-      action: "Check Requirements",
+      title: "Obtener Aprobación",
+      description: "Completa el proceso de aprobación incluyendo verificaciones de crédito y referencias.",
+      action: "Ver Requisitos",
     },
     {
       icon: Key,
-      title: "Move In",
-      description: "Sign your lease, pay deposits, and get your keys to your new home.",
-      action: "Moving Checklist",
+      title: "Mudarse",
+      description: "Firma tu contrato, paga los depósitos y obtén las llaves de tu nuevo hogar.",
+      action: "Lista de Mudanza",
     },
   ]
 
@@ -34,9 +35,9 @@ export function RentalGuide() {
     <section className="bg-slate-50 py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Your Rental Journey</h2>
+          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Tu Proceso de Alquiler</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            From searching to signing, we make finding and securing your next rental simple and stress-free.
+            Desde buscar hasta firmar, hacemos que encontrar y asegurar tu próximo alquiler sea simple y sin estrés.
           </p>
         </div>
 
@@ -61,10 +62,10 @@ export function RentalGuide() {
 
         <div className="text-center mt-12 space-y-4">
           <Button size="lg" className="bg-emerald-700 hover:bg-emerald-800 px-8 mr-4">
-            Find Rentals Now
+            Buscar Alquileres Ahora
           </Button>
           <Button size="lg" variant="outline" className="px-8 bg-transparent">
-            Rental Resources
+            Recursos de Alquiler
           </Button>
         </div>
       </div>

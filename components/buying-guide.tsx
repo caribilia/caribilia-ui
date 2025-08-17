@@ -6,27 +6,28 @@ export function BuyingGuide() {
   const steps = [
     {
       icon: Calculator,
-      title: "Get Pre-Approved",
-      description: "Know your budget and show sellers you're serious with a mortgage pre-approval.",
-      action: "Calculate Affordability",
+      title: "Obtén Pre-Aprobación",
+      description:
+        "Conoce tu presupuesto y demuestra a los vendedores que eres serio con una pre-aprobación hipotecaria.",
+      action: "Calcular Capacidad",
     },
     {
       icon: Home,
-      title: "Find Your Home",
-      description: "Search properties, schedule tours, and work with our expert agents.",
-      action: "Browse Properties",
+      title: "Encuentra tu Hogar",
+      description: "Busca propiedades, programa visitas y trabaja con nuestros agentes expertos.",
+      action: "Ver Propiedades",
     },
     {
       icon: FileText,
-      title: "Make an Offer",
-      description: "Submit competitive offers with guidance from experienced professionals.",
-      action: "Learn About Offers",
+      title: "Haz una Oferta",
+      description: "Presenta ofertas competitivas con la guía de profesionales experimentados.",
+      action: "Aprende sobre Ofertas",
     },
     {
       icon: Users,
-      title: "Close the Deal",
-      description: "Complete inspections, finalize financing, and get your keys.",
-      action: "Find an Agent",
+      title: "Cierra el Trato",
+      description: "Completa las inspecciones, finaliza el financiamiento y obtén tus llaves.",
+      action: "Encuentra un Agente",
     },
   ]
 
@@ -34,9 +35,9 @@ export function BuyingGuide() {
     <section className="bg-slate-50 py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Your Home Buying Journey</h2>
+          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Tu Proceso de Compra</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            We'll guide you through every step of the home buying process, from pre-approval to closing.
+            Te guiaremos a través de cada paso del proceso de compra, desde la pre-aprobación hasta el cierre.
           </p>
         </div>
 
@@ -61,7 +62,7 @@ export function BuyingGuide() {
 
         <div className="text-center mt-12">
           <Button size="lg" className="bg-cyan-800 hover:bg-cyan-900 px-8">
-            Get Started Today
+            Comenzar Hoy
           </Button>
         </div>
       </div>

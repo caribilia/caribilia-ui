@@ -10,46 +10,77 @@ export function RentalFilters() {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="font-serif text-xl">Rental Filters</CardTitle>
+          <CardTitle className="font-serif text-xl">Filtros de Alquiler</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
+          <div>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Provincia/Región</label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Seleccionar provincia" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="santo-domingo">Santo Domingo</SelectItem>
+                <SelectItem value="punta-cana">Punta Cana</SelectItem>
+                <SelectItem value="samana">Samaná</SelectItem>
+                <SelectItem value="puerto-plata">Puerto Plata</SelectItem>
+                <SelectItem value="la-romana">La Romana</SelectItem>
+                <SelectItem value="santiago">Santiago</SelectItem>
+                <SelectItem value="cap-cana">Cap Cana</SelectItem>
+                <SelectItem value="bavaro">Bávaro</SelectItem>
+                <SelectItem value="jarabacoa">Jarabacoa</SelectItem>
+                <SelectItem value="constanza">Constanza</SelectItem>
+                <SelectItem value="las-terrenas">Las Terrenas</SelectItem>
+                <SelectItem value="cabarete">Cabarete</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           {/* Monthly Rent */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Monthly Rent</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Alquiler Mensual</label>
             <div className="space-y-3">
-              <Slider defaultValue={[1500, 3500]} max={8000} min={500} step={100} className="w-full" />
+              <Slider defaultValue={[800, 2000]} max={5000} min={300} step={100} className="w-full" />
               <div className="flex justify-between text-sm text-slate-600">
-                <span>$1,500</span>
-                <span>$3,500</span>
+                <span>US$800</span>
+                <span>US$2,000</span>
               </div>
             </div>
           </div>
 
           {/* Move-in Date */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-2 block">Move-in Date</label>
+            <label className="text-sm font-semibold text-slate-700 mb-2 block">Fecha de Mudanza</label>
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Select date" />
+                <SelectValue placeholder="Seleccionar fecha" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="asap">ASAP</SelectItem>
-                <SelectItem value="1month">Within 1 month</SelectItem>
-                <SelectItem value="2months">Within 2 months</SelectItem>
-                <SelectItem value="3months">Within 3 months</SelectItem>
+                <SelectItem value="asap">Lo antes posible</SelectItem>
+                <SelectItem value="1month">En 1 mes</SelectItem>
+                <SelectItem value="2months">En 2 meses</SelectItem>
+                <SelectItem value="3months">En 3 meses</SelectItem>
+                <SelectItem value="flexible">Flexible</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           {/* Property Type */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Property Type</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Tipo de Propiedad</label>
             <div className="space-y-2">
-              {["Apartment", "House", "Condo", "Townhouse", "Studio"].map((type) => (
-                <div key={type} className="flex items-center space-x-2">
-                  <Checkbox id={type} />
-                  <label htmlFor={type} className="text-sm text-slate-600">
-                    {type}
+              {[
+                { id: "apartamento", label: "Apartamento" },
+                { id: "casa", label: "Casa" },
+                { id: "villa", label: "Villa" },
+                { id: "penthouse", label: "Penthouse" },
+                { id: "estudio", label: "Estudio" },
+                { id: "alquiler-vacacional", label: "Alquiler Vacacional" },
+              ].map((type) => (
+                <div key={type.id} className="flex items-center space-x-2">
+                  <Checkbox id={type.id} />
+                  <label htmlFor={type.id} className="text-sm text-slate-600">
+                    {type.label}
                   </label>
                 </div>
               ))}
@@ -59,31 +90,33 @@ export function RentalFilters() {
           {/* Bedrooms & Bathrooms */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-semibold text-slate-700 mb-2 block">Bedrooms</label>
+              <label className="text-sm font-semibold text-slate-700 mb-2 block">Habitaciones</label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Any" />
+                  <SelectValue placeholder="Cualquiera" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Any</SelectItem>
-                  <SelectItem value="studio">Studio</SelectItem>
+                  <SelectItem value="any">Cualquiera</SelectItem>
+                  <SelectItem value="studio">Estudio</SelectItem>
                   <SelectItem value="1">1+</SelectItem>
                   <SelectItem value="2">2+</SelectItem>
                   <SelectItem value="3">3+</SelectItem>
+                  <SelectItem value="4">4+</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <label className="text-sm font-semibold text-slate-700 mb-2 block">Bathrooms</label>
+              <label className="text-sm font-semibold text-slate-700 mb-2 block">Baños</label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Any" />
+                  <SelectValue placeholder="Cualquiera" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="any">Cualquiera</SelectItem>
                   <SelectItem value="1">1+</SelectItem>
                   <SelectItem value="2">2+</SelectItem>
                   <SelectItem value="3">3+</SelectItem>
+                  <SelectItem value="4">4+</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -91,13 +124,18 @@ export function RentalFilters() {
 
           {/* Lease Terms */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Lease Terms</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Términos de Alquiler</label>
             <div className="space-y-2">
-              {["Month-to-Month", "6 Months", "12 Months", "24+ Months"].map((term) => (
-                <div key={term} className="flex items-center space-x-2">
-                  <Checkbox id={term} />
-                  <label htmlFor={term} className="text-sm text-slate-600">
-                    {term}
+              {[
+                { id: "mes-a-mes", label: "Mes a Mes" },
+                { id: "6-meses", label: "6 Meses" },
+                { id: "12-meses", label: "12 Meses" },
+                { id: "24-meses", label: "24+ Meses" },
+              ].map((term) => (
+                <div key={term.id} className="flex items-center space-x-2">
+                  <Checkbox id={term.id} />
+                  <label htmlFor={term.id} className="text-sm text-slate-600">
+                    {term.label}
                   </label>
                 </div>
               ))}
@@ -106,36 +144,45 @@ export function RentalFilters() {
 
           {/* Amenities */}
           <div>
-            <label className="text-sm font-semibold text-slate-700 mb-3 block">Amenities</label>
+            <label className="text-sm font-semibold text-slate-700 mb-3 block">Comodidades</label>
             <div className="space-y-2">
-              {["Pet Friendly", "Parking", "Laundry", "Pool", "Gym", "Air Conditioning"].map((amenity) => (
-                <div key={amenity} className="flex items-center space-x-2">
-                  <Checkbox id={amenity} />
-                  <label htmlFor={amenity} className="text-sm text-slate-600">
-                    {amenity}
+              {[
+                { id: "mascotas", label: "Acepta Mascotas" },
+                { id: "estacionamiento", label: "Estacionamiento" },
+                { id: "lavanderia", label: "Lavandería" },
+                { id: "piscina", label: "Piscina" },
+                { id: "gimnasio", label: "Gimnasio" },
+                { id: "aire-acondicionado", label: "Aire Acondicionado" },
+                { id: "seguridad", label: "Seguridad 24/7" },
+                { id: "amueblado", label: "Amueblado" },
+              ].map((amenity) => (
+                <div key={amenity.id} className="flex items-center space-x-2">
+                  <Checkbox id={amenity.id} />
+                  <label htmlFor={amenity.id} className="text-sm text-slate-600">
+                    {amenity.label}
                   </label>
                 </div>
               ))}
             </div>
           </div>
 
-          <Button className="w-full bg-emerald-700 hover:bg-emerald-800">Apply Filters</Button>
+          <Button className="w-full bg-emerald-700 hover:bg-emerald-800">Aplicar Filtros</Button>
         </CardContent>
       </Card>
 
       {/* Active Filters */}
       <Card>
         <CardHeader>
-          <CardTitle className="font-serif text-lg">Active Filters</CardTitle>
+          <CardTitle className="font-serif text-lg">Filtros Activos</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary" className="bg-emerald-100 text-emerald-800">
-              $1,500 - $3,500
+              US$800 - US$2,000
               <button className="ml-1 text-emerald-600 hover:text-emerald-800">×</button>
             </Badge>
             <Badge variant="secondary" className="bg-emerald-100 text-emerald-800">
-              Pet Friendly
+              Acepta Mascotas
               <button className="ml-1 text-emerald-600 hover:text-emerald-800">×</button>
             </Badge>
           </div>

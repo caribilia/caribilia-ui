@@ -15,29 +15,23 @@ export function Header() {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/buy" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
-              Buy
-            </Link>
             <Link href="/rent" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
-              Rent
+              Alquilar
             </Link>
             <Link href="/sell" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
-              Sell
+              Vender
             </Link>
             <a href="#" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
-              Agents
-            </a>
-            <a href="#" className="text-slate-600 hover:text-cyan-800 font-medium transition-colors">
-              Loans
+              Agentes
             </a>
           </nav>
 
           {/* Actions */}
           <div className="flex items-center gap-4">
             <Button variant="ghost" className="hidden sm:inline-flex">
-              Sign In
+              Iniciar Sesión
             </Button>
-            <Button className="bg-cyan-800 hover:bg-cyan-900 text-white">Get Started</Button>
+            <Button className="bg-cyan-800 hover:bg-cyan-900 text-white">Comenzar</Button>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
             </Button>

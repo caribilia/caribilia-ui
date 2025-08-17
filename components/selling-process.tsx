@@ -6,31 +6,32 @@ export function SellingProcess() {
   const steps = [
     {
       icon: Camera,
-      title: "Prepare Your Home",
-      description: "Professional photography, staging advice, and home improvements to maximize appeal.",
-      timeline: "Week 1-2",
-      tasks: ["Professional photos", "Home staging", "Minor repairs", "Curb appeal"],
+      title: "Prepara tu Casa",
+      description: "Fotografía profesional, consejos de staging y mejoras del hogar para maximizar el atractivo.",
+      timeline: "Semana 1-2",
+      tasks: ["Fotos profesionales", "Staging del hogar", "Reparaciones menores", "Atractivo exterior"],
     },
     {
       icon: PresentationChart,
-      title: "Price & Market",
-      description: "Set the right price based on market analysis and create compelling listing materials.",
-      timeline: "Week 2-3",
-      tasks: ["Market analysis", "Pricing strategy", "MLS listing", "Marketing plan"],
+      title: "Precio y Mercadeo",
+      description:
+        "Establece el precio correcto basado en análisis de mercado y crea materiales de listado atractivos.",
+      timeline: "Semana 2-3",
+      tasks: ["Análisis de mercado", "Estrategia de precios", "Listado MLS", "Plan de mercadeo"],
     },
     {
       icon: Users,
-      title: "Show & Negotiate",
-      description: "Host showings, review offers, and negotiate the best terms for your sale.",
-      timeline: "Week 3-6",
-      tasks: ["Schedule showings", "Review offers", "Negotiate terms", "Accept offer"],
+      title: "Mostrar y Negociar",
+      description: "Organiza visitas, revisa ofertas y negocia los mejores términos para tu venta.",
+      timeline: "Semana 3-6",
+      tasks: ["Programar visitas", "Revisar ofertas", "Negociar términos", "Aceptar oferta"],
     },
     {
       icon: Key,
-      title: "Close the Sale",
-      description: "Handle inspections, appraisals, and final paperwork to complete your sale.",
-      timeline: "Week 6-10",
-      tasks: ["Home inspection", "Appraisal", "Final walkthrough", "Closing day"],
+      title: "Cerrar la Venta",
+      description: "Maneja inspecciones, tasaciones y papeleo final para completar tu venta.",
+      timeline: "Semana 6-10",
+      tasks: ["Inspección del hogar", "Tasación", "Recorrido final", "Día de cierre"],
     },
   ]
 
@@ -40,10 +41,10 @@ export function SellingProcess() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-              Your Selling Journey, Step by Step
+              Tu Proceso de Venta, Paso a Paso
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              We'll guide you through every stage of selling your home, from preparation to closing day.
+              Te guiaremos a través de cada etapa de vender tu casa, desde la preparación hasta el día de cierre.
             </p>
           </div>
 
@@ -77,10 +78,10 @@ export function SellingProcess() {
 
           <div className="text-center mt-12">
             <Button size="lg" className="bg-orange-600 hover:bg-orange-700 px-8 mr-4">
-              Start Selling Process
+              Comenzar Proceso de Venta
             </Button>
             <Button size="lg" variant="outline" className="px-8 bg-transparent">
-              Download Selling Guide
+              Descargar Guía de Venta
             </Button>
           </div>
         </div>

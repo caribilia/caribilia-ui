@@ -11,25 +11,27 @@ export function SellHeroSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="font-serif text-4xl lg:text-6xl font-bold text-slate-900 mb-6">
-                Sell Your Home with Confidence
+                Vende tu Casa con Confianza
               </h1>
               <p className="text-xl text-slate-600 mb-8">
-                Get your home's current market value instantly and connect with top-rated agents to maximize your sale
-                price.
+                Obtén el valor actual de mercado de tu casa al instante y conéctate con agentes mejor calificados para
+                maximizar tu precio de venta.
               </p>
 
               {/* Quick Home Value Form */}
               <Card className="bg-white shadow-xl">
                 <CardContent className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">Get Your Home's Value</h3>
+                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">Obtén el Valor de tu Casa</h3>
                   <div className="space-y-4">
-                    <Input placeholder="Enter your home address" className="h-12 text-lg" />
+                    <Input placeholder="Ingresa la dirección de tu casa" className="h-12 text-lg" />
                     <Button className="w-full h-12 text-lg bg-orange-600 hover:bg-orange-700">
                       <Search className="mr-2 h-5 w-5" />
-                      Get Free Home Value
+                      Obtener Valor Gratuito
                     </Button>
                   </div>
-                  <p className="text-sm text-slate-500 mt-3 text-center">No obligation • Updated daily • 100% free</p>
+                  <p className="text-sm text-slate-500 mt-3 text-center">
+                    Sin compromiso • Actualizado diariamente • 100% gratis
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -43,8 +45,8 @@ export function SellHeroSection() {
                       <TrendingUp className="h-6 w-6 text-orange-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900">Maximize Your Sale Price</h4>
-                      <p className="text-slate-600 text-sm">Our agents sell homes for 2% more on average</p>
+                      <h4 className="font-semibold text-slate-900">Maximiza tu Precio de Venta</h4>
+                      <p className="text-slate-600 text-sm">Nuestros agentes venden casas por 2% más en promedio</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -55,8 +57,8 @@ export function SellHeroSection() {
                       <Clock className="h-6 w-6 text-orange-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900">Sell Faster</h4>
-                      <p className="text-slate-600 text-sm">Average time on market: 18 days vs 28 days</p>
+                      <h4 className="font-semibold text-slate-900">Vende Más Rápido</h4>
+                      <p className="text-slate-600 text-sm">Tiempo promedio en el mercado: 18 días vs 28 días</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -67,8 +69,8 @@ export function SellHeroSection() {
                       <DollarSign className="h-6 w-6 text-orange-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900">Save on Fees</h4>
-                      <p className="text-slate-600 text-sm">Competitive commission rates and transparent pricing</p>
+                      <h4 className="font-semibold text-slate-900">Ahorra en Comisiones</h4>
+                      <p className="text-slate-600 text-sm">Tarifas de comisión competitivas y precios transparentes</p>
                     </div>
                   </CardContent>
                 </Card>
