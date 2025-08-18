@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { MapPin, List, MapIcon } from "lucide-react"
+import { useEffect, useRef, useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { MapPin, List, MapIcon } from "lucide-react";
 
 interface Property {
-  id: string
-  title: string
-  price: string
-  address: string
-  beds: number
-  baths: number
-  sqft: string
-  image: string
-  lat: number
-  lng: number
-  type: "sale" | "rent"
+  id: string;
+  title: string;
+  price: string;
+  address: string;
+  beds: number;
+  baths: number;
+  sqft: string;
+  image: string;
+  lat: number;
+  lng: number;
+  type: "sale" | "rent";
 }
 
 interface PropertyMapProps {
-  properties: Property[]
-  selectedProperty?: string
-  onPropertySelect?: (propertyId: string) => void
-  showListView?: boolean
-  onToggleView?: () => void
+  properties: Property[];
+  selectedProperty?: string;
+  onPropertySelect?: (propertyId: string) => void;
+  showListView?: boolean;
+  onToggleView?: () => void;
 }
 
 export function PropertyMap({
@@ -34,58 +34,80 @@ export function PropertyMap({
   showListView = false,
   onToggleView,
 }: PropertyMapProps) {
-  const mapRef = useRef<HTMLDivElement>(null)
-  const mapInstanceRef = useRef<any>(null)
-  const markersRef = useRef<any[]>([])
-  const [isLoaded, setIsLoaded] = useState(false)
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<any>(null);
+  const markersRef = useRef<any[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Dynamically import Leaflet to avoid SSR issues
     const loadMap = async () => {
-      if (typeof window === "undefined") return
+      if (typeof window === "undefined") return;
 
-      const L = (await import("leaflet")).default
+      const L = (await import("leaflet")).default;
 
       // Import CSS
-      const link = document.createElement("link")
-      link.rel = "stylesheet"
-      link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      document.head.appendChild(link)
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      document.head.appendChild(link);
+
+      // Inject custom CSS for property markers
+      const customCSS = document.createElement("style");
+      customCSS.textContent = `
+        .property-marker {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          user-select: none;
+          pointer-events: auto;
+        }
+        .custom-marker {
+          background: transparent !important;
+          border: none !important;
+        }
+        .leaflet-marker-icon.custom-marker {
+          background: transparent !important;
+          border: none !important;
+        }
+      `;
+      document.head.appendChild(customCSS);
 
       if (mapRef.current && !mapInstanceRef.current) {
         // Initialize map
-        mapInstanceRef.current = L.map(mapRef.current).setView([40.7128, -74.006], 10)
+        mapInstanceRef.current = L.map(mapRef.current).setView(
+          [18.4861, -69.9312],
+          10
+        ); // Santo Domingo, DR
 
         // Add tile layer
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution: "© OpenStreetMap contributors",
-        }).addTo(mapInstanceRef.current)
+        }).addTo(mapInstanceRef.current);
 
-        setIsLoaded(true)
+        setIsLoaded(true);
       }
-    }
+    };
 
-    loadMap()
+    loadMap();
 
     return () => {
       if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove()
-        mapInstanceRef.current = null
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
       }
-    }
-  }, [])
+    };
+  }, []);
 
   useEffect(() => {
-    if (!isLoaded || !mapInstanceRef.current) return
+    if (!isLoaded || !mapInstanceRef.current) return;
 
     const loadMarkersAndBounds = async () => {
-      const L = (await import("leaflet")).default
+      const L = (await import("leaflet")).default;
 
       // Clear existing markers
-      markersRef.current.forEach((marker) => marker.remove())
-      markersRef.current = []
+      markersRef.current.forEach((marker) => marker.remove());
+      markersRef.current = [];
 
-      if (properties.length === 0) return
+      if (properties.length === 0) return;
 
       // Create custom icon
       const createCustomIcon = (price: string, isSelected: boolean) => {
@@ -94,35 +116,44 @@ export function PropertyMap({
             <div class="property-marker ${isSelected ? "selected" : ""}" style="
               background: ${isSelected ? "#0891b2" : "#dc2626"};
               color: white;
-              padding: 4px 8px;
-              border-radius: 16px;
-              font-size: 12px;
+              padding: 8px 16px;
+              border-radius: 24px;
+              font-size: 14px;
               font-weight: 600;
-              border: 2px solid white;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+              border: 3px solid white;
+              box-shadow: 0 6px 12px rgba(0,0,0,0.4);
               white-space: nowrap;
-              transform: translate(-50%, -100%);
+              position: relative;
+              z-index: 1000;
+              min-width: max-content;
+              text-align: center;
+              line-height: 1.2;
+              overflow: visible;
+              word-break: keep-all;
             ">
-              ${price}
+              <span style="display: inline-block; width: 100%;">${price}</span>
             </div>
           `,
           className: "custom-marker",
-          iconSize: [0, 0],
-          iconAnchor: [0, 0],
-        })
-      }
+          iconSize: [140, 50], // Increased size to prevent clipping
+          iconAnchor: [70, 50], // Center horizontally, anchor at bottom
+        });
+      };
 
       // Add markers for each property
-      const bounds = L.latLngBounds([])
+      const bounds = L.latLngBounds([]);
 
       properties.forEach((property) => {
         const marker = L.marker([property.lat, property.lng], {
-          icon: createCustomIcon(property.price, selectedProperty === property.id),
-        }).addTo(mapInstanceRef.current)
+          icon: createCustomIcon(
+            property.price,
+            selectedProperty === property.id
+          ),
+        }).addTo(mapInstanceRef.current);
 
         marker.on("click", () => {
-          onPropertySelect?.(property.id)
-        })
+          onPropertySelect?.(property.id);
+        });
 
         // Add popup
         marker.bindPopup(`
@@ -132,20 +163,20 @@ export function PropertyMap({
             <p style="margin: 0 0 4px 0; font-size: 14px; color: #666;">${property.beds} beds • ${property.baths} baths • ${property.sqft}</p>
             <p style="margin: 0; font-size: 12px; color: #888;">${property.address}</p>
           </div>
-        `)
+        `);
 
-        markersRef.current.push(marker)
-        bounds.extend([property.lat, property.lng])
-      })
+        markersRef.current.push(marker);
+        bounds.extend([property.lat, property.lng]);
+      });
 
       // Fit map to show all markers
       if (properties.length > 0) {
-        mapInstanceRef.current.fitBounds(bounds, { padding: [20, 20] })
+        mapInstanceRef.current.fitBounds(bounds, { padding: [20, 20] });
       }
-    }
+    };
 
-    loadMarkersAndBounds()
-  }, [properties, selectedProperty, isLoaded, onPropertySelect])
+    loadMarkersAndBounds();
+  }, [properties, selectedProperty, isLoaded, onPropertySelect]);
 
   return (
     <div className="relative h-full">
@@ -154,8 +185,17 @@ export function PropertyMap({
       {/* Map Controls */}
       <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2">
         {onToggleView && (
-          <Button variant="outline" size="sm" onClick={onToggleView} className="bg-white shadow-md">
-            {showListView ? <MapIcon className="h-4 w-4" /> : <List className="h-4 w-4" />}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onToggleView}
+            className="bg-white shadow-md"
+          >
+            {showListView ? (
+              <MapIcon className="h-4 w-4" />
+            ) : (
+              <List className="h-4 w-4" />
+            )}
             {showListView ? "Map" : "List"}
           </Button>
         )}
@@ -171,5 +211,5 @@ export function PropertyMap({
         </Card>
       </div>
     </div>
-  )
+  );
 }

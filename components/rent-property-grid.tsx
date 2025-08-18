@@ -1,94 +1,110 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Heart, Bed, Bath, Square, MapPin, Calendar, DollarSign, PawPrint } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Heart,
+  Bed,
+  Bath,
+  Square,
+  MapPin,
+  Calendar,
+  DollarSign,
+  PawPrint,
+} from "lucide-react";
 
 const rentals = [
   {
     id: 1,
-    image: "/modern-apartment.png",
-    rent: "$2,800/month",
-    deposit: "$2,800",
-    address: "1234 Market Street, San Francisco, CA",
+    image: "/apartamento-bella-vista.png",
+    rent: "RD$45,000/mes",
+    deposit: "RD$45,000",
+    address: "Bella Vista, Santo Domingo, República Dominicana",
     beds: 2,
     baths: 2,
-    sqft: "1,100",
-    available: "Available Now",
-    leaseTerms: "12 months",
+    sqft: "85",
+    available: "Disponible Ahora",
+    leaseTerms: "12 meses",
     petFriendly: true,
-    type: "Apartment",
+    type: "Apartamento",
   },
   {
     id: 2,
-    image: "/rental-townhouse.png",
-    rent: "$3,200/month",
-    deposit: "$3,200",
-    address: "5678 Oak Avenue, Palo Alto, CA",
+    image: "/casa-colonial-zona.png",
+    rent: "RD$65,000/mes",
+    deposit: "RD$65,000",
+    address: "Zona Colonial, Santo Domingo, República Dominicana",
     beds: 3,
     baths: 2.5,
-    sqft: "1,650",
-    available: "Dec 1st",
-    leaseTerms: "12 months",
+    sqft: "120",
+    available: "1 de Diciembre",
+    leaseTerms: "12 meses",
     petFriendly: false,
-    type: "Townhouse",
+    type: "Casa Colonial",
   },
   {
     id: 3,
-    image: "/studio-apartment.png",
-    rent: "$1,950/month",
-    deposit: "$1,950",
-    address: "9012 Pine Street, Mountain View, CA",
+    image: "/estudio-naco.png",
+    rent: "RD$35,000/mes",
+    deposit: "RD$35,000",
+    address: "Naco, Santo Domingo, República Dominicana",
     beds: 0,
     baths: 1,
-    sqft: "650",
-    available: "Available Now",
-    leaseTerms: "6-12 months",
+    sqft: "45",
+    available: "Disponible Ahora",
+    leaseTerms: "6-12 meses",
     petFriendly: true,
-    type: "Studio",
+    type: "Estudio",
   },
   {
     id: 4,
-    image: "/luxury-rental.png",
-    rent: "$4,500/month",
-    deposit: "$4,500",
-    address: "3456 Elm Drive, Los Altos, CA",
+    image: "/villa-punta-cana.png",
+    rent: "RD$120,000/mes",
+    deposit: "RD$120,000",
+    address: "Punta Cana, República Dominicana",
     beds: 3,
     baths: 3,
-    sqft: "2,100",
-    available: "Jan 15th",
-    leaseTerms: "12 months",
+    sqft: "180",
+    available: "15 de Enero",
+    leaseTerms: "12 meses",
     petFriendly: true,
-    type: "House",
+    type: "Villa",
   },
   {
     id: 5,
-    image: "/modern-condo.png",
-    rent: "$2,400/month",
-    deposit: "$2,400",
-    address: "7890 Cedar Lane, Sunnyvale, CA",
+    image: "/penthouse-piantini.png",
+    rent: "RD$85,000/mes",
+    deposit: "RD$85,000",
+    address: "Piantini, Santo Domingo, República Dominicana",
     beds: 1,
     baths: 1,
-    sqft: "850",
-    available: "Available Now",
-    leaseTerms: "6-12 months",
+    sqft: "65",
+    available: "Disponible Ahora",
+    leaseTerms: "6-12 meses",
     petFriendly: false,
-    type: "Condo",
+    type: "Penthouse",
   },
   {
     id: 6,
-    image: "/family-rental.png",
-    rent: "$3,800/month",
-    deposit: "$3,800",
-    address: "2468 Birch Street, Cupertino, CA",
+    image: "/casa-las-terrenas.png",
+    rent: "RD$95,000/mes",
+    deposit: "RD$95,000",
+    address: "Las Terrenas, Samaná, República Dominicana",
     beds: 4,
     baths: 3,
-    sqft: "2,200",
-    available: "Feb 1st",
-    leaseTerms: "12 months",
+    sqft: "200",
+    available: "1 de Febrero",
+    leaseTerms: "12 meses",
     petFriendly: true,
-    type: "House",
+    type: "Casa",
   },
-]
+];
 
 export function RentPropertyGrid() {
   return (
@@ -96,22 +112,34 @@ export function RentPropertyGrid() {
       {/* Results Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="font-serif text-2xl font-bold text-slate-900">Rentals Available</h2>
-          <p className="text-slate-600">892 rental properties in your area</p>
+          <h2 className="font-serif text-2xl font-bold text-slate-900">
+            Alquileres disponibles
+          </h2>
+          <p className="text-slate-600">
+            892 propiedades en República Dominicana
+          </p>
         </div>
-        <select className="border border-slate-200 rounded-lg px-4 py-2 text-sm">
-          <option>Sort: Newest</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
-          <option>Available Date</option>
-          <option>Square Feet</option>
-        </select>
+        <Select>
+          <SelectTrigger className="w-[200px]">
+            <SelectValue placeholder="Ordenar: Reciente" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="reciente">Ordenar: Reciente</SelectItem>
+            <SelectItem value="precio-bajo">Precio: Bajo a Alto</SelectItem>
+            <SelectItem value="precio-alto">Precio: Alto a Bajo</SelectItem>
+            <SelectItem value="fecha">Fecha disponible</SelectItem>
+            <SelectItem value="metros">Metros cuadrados</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Property Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {rentals.map((rental) => (
-          <Card key={rental.id} className="group hover:shadow-xl transition-all duration-300 cursor-pointer">
+          <Card
+            key={rental.id}
+            className="group hover:shadow-xl transition-all duration-300 cursor-pointer"
+          >
             <div className="relative overflow-hidden">
               <img
                 src={rental.image || "/placeholder.svg"}
@@ -124,14 +152,21 @@ export function RentPropertyGrid() {
               <div className="absolute top-4 left-4 flex gap-2">
                 <Badge
                   variant="default"
-                  className={rental.available === "Available Now" ? "bg-green-600" : "bg-blue-600"}
+                  className={
+                    rental.available === "Disponible Ahora"
+                      ? "bg-green-600"
+                      : "bg-blue-600"
+                  }
                 >
                   {rental.available}
                 </Badge>
                 {rental.petFriendly && (
-                  <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+                  <Badge
+                    variant="secondary"
+                    className="bg-orange-100 text-orange-800"
+                  >
                     <PawPrint className="h-3 w-3 mr-1" />
-                    Pet OK
+                    Acepta Mascotas
                   </Badge>
                 )}
               </div>
@@ -140,10 +175,12 @@ export function RentPropertyGrid() {
             <CardContent className="p-6">
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-slate-900">{rental.rent}</h3>
+                  <h3 className="font-serif text-2xl font-bold text-slate-900">
+                    {rental.rent}
+                  </h3>
                   <div className="flex items-center text-slate-600 mt-1">
                     <DollarSign className="h-4 w-4 mr-1" />
-                    <span className="text-sm">{rental.deposit} deposit</span>
+                    <span className="text-sm">Depósito: {rental.deposit}</span>
                   </div>
                   <div className="flex items-center text-slate-600 mt-1">
                     <MapPin className="h-4 w-4 mr-1" />
@@ -155,15 +192,19 @@ export function RentPropertyGrid() {
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center">
                       <Bed className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{rental.beds === 0 ? "Studio" : `${rental.beds} beds`}</span>
+                      <span className="text-sm">
+                        {rental.beds === 0
+                          ? "Estudio"
+                          : `${rental.beds} dormitorios`}
+                      </span>
                     </div>
                     <div className="flex items-center">
                       <Bath className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{rental.baths} baths</span>
+                      <span className="text-sm">{rental.baths} baños</span>
                     </div>
                     <div className="flex items-center">
                       <Square className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{rental.sqft} sqft</span>
+                      <span className="text-sm">{rental.sqft} m²</span>
                     </div>
                   </div>
                 </div>
@@ -171,14 +212,16 @@ export function RentPropertyGrid() {
                 <div className="flex items-center justify-between pt-2 border-t border-slate-100">
                   <div className="flex items-center text-slate-500 text-sm">
                     <Calendar className="h-4 w-4 mr-1" />
-                    <span>{rental.leaseTerms}</span>
+                    <span>Plazo: {rental.leaseTerms}</span>
                   </div>
                   <Badge variant="outline" className="text-xs">
                     {rental.type}
                   </Badge>
                 </div>
 
-                <Button className="w-full bg-emerald-700 hover:bg-emerald-800">Contactar Propiedad</Button>
+                <Button className="w-full bg-emerald-700 hover:bg-emerald-800">
+                  Contactar Propiedad
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -188,9 +231,9 @@ export function RentPropertyGrid() {
       {/* Load More */}
       <div className="text-center pt-8">
         <Button variant="outline" size="lg" className="px-8 bg-transparent">
-          Load More Rentals
+          Cargar más propiedades
         </Button>
       </div>
     </div>
-  )
+  );
 }

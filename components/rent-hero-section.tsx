@@ -1,7 +1,13 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, MapPin } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Search, MapPin } from "lucide-react";
 
 export function RentHeroSection() {
   return (
@@ -12,8 +18,9 @@ export function RentHeroSection() {
             Encuentra tu próximo alquiler
           </h1>
           <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            Descubre apartamentos, casas y condos en alquiler. Desde estudios hasta casas de lujo, encuentra el alquiler
-            perfecto que se adapte a tu estilo de vida y presupuesto.
+            Descubre apartamentos, casas y condos en alquiler. Desde estudios
+            hasta casas de lujo, encuentra el alquiler perfecto que se adapte a
+            tu estilo de vida y presupuesto.
           </p>
 
           {/* Enhanced Search Bar */}
@@ -59,5 +66,5 @@ export function RentHeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

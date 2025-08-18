@@ -1,23 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { RentHeroSection } from "@/components/rent-hero-section"
-import { RentalFilters } from "@/components/rental-filters"
-import { RentPropertyGrid } from "@/components/rent-property-grid"
-import { RentalGuide } from "@/components/rental-guide"
-import { MapLayout } from "@/components/map-layout"
-import { Button } from "@/components/ui/button"
-import { MapIcon, Grid3X3, List } from "lucide-react"
-import { mockProperties } from "@/lib/mock-properties"
+import { useState } from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { RentHeroSection } from "@/components/rent-hero-section";
+import { RentalFilters } from "@/components/rental-filters";
+import { RentPropertyGrid } from "@/components/rent-property-grid";
+import { RentalGuide } from "@/components/rental-guide";
+import { MapLayout } from "@/components/map-layout";
+import { Button } from "@/components/ui/button";
+import { MapIcon, Grid3X3, List } from "lucide-react";
+import { mockProperties } from "@/lib/mock-properties";
 
-type ViewMode = "grid" | "map" | "list"
+type ViewMode = "grid" | "map" | "list";
 
 export default function RentPage() {
-  const [viewMode, setViewMode] = useState<ViewMode>("grid")
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
 
-  const rentalProperties = mockProperties.filter((property) => property.type === "rent")
+  const rentalProperties = mockProperties.filter(
+    (property) => property.type === "rent"
+  );
 
   return (
     <main className="min-h-screen">
@@ -26,7 +28,9 @@ export default function RentPage() {
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">{rentalProperties.length} Alquileres Disponibles</h1>
+          <h1 className="text-2xl font-bold text-gray-900">
+            {rentalProperties.length} Alquileres Disponibles
+          </h1>
 
           <div className="flex items-center gap-2">
             <Button
@@ -78,5 +82,5 @@ export default function RentPage() {
       <RentalGuide />
       <Footer />
     </main>
-  )
+  );
 }
