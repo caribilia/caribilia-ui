@@ -33,7 +33,7 @@ export function Footer() {
                   href="#"
                   className="text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  Alquilar
+                  Alquilarsh
                 </a>
               </li>
               <li>
