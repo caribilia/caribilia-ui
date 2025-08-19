@@ -1,0 +1,276 @@
+/* Estilos específicos para la página de agentes */
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Animaciones para las tarjetas de agentes */
+.agent-card {
+  transition: all 0.3s ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para las estrellas de calificación */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+}
+
+.star-rating .star {
+  transition: color 0.2s ease;
+}
+
+/* Estilos para los badges de idiomas y especialidades */
+.language-badge,
+.specialty-badge {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.language-badge:hover,
+.specialty-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para el modal de contacto */
+.contact-modal {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Estilos para los filtros */
+.filter-section {
+  transition: all 0.3s ease;
+}
+
+.filter-badge {
+  transition: all 0.2s ease;
+}
+
+.filter-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgb(var(--primary) / 0.1);
+}
+
+/* Estilos para las estadísticas */
+.stats-card {
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para las propiedades del agente */
+.property-card {
+  transition: all 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para el hero section */
+.hero-gradient {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary) / 0.05) 0%, 
+    rgb(var(--background)) 50%, 
+    rgb(var(--primary) / 0.1) 100%
+  );
+}
+
+/* Estilos para los botones de contacto */
+.contact-button {
+  transition: all 0.2s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para el modal de contacto */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+}
+
+/* Estilos para los campos del formulario */
+.form-input:focus {
+  border-color: rgb(var(--primary));
+  box-shadow: 0 0 0 3px rgb(var(--primary) / 0.1);
+}
+
+/* Estilos para las opciones del formulario */
+.form-select:focus {
+  border-color: rgb(var(--primary));
+  box-shadow: 0 0 0 3px rgb(var(--primary) / 0.1);
+}
+
+/* Estilos para el textarea */
+.form-textarea:focus {
+  border-color: rgb(var(--primary));
+  box-shadow: 0 0 0 3px rgb(var(--primary) / 0.1);
+}
+
+/* Estilos para los botones del formulario */
+.form-button {
+  transition: all 0.2s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para la información del agente en el modal */
+.agent-info-card {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary) / 0.05) 0%, 
+    rgb(var(--muted) / 0.3) 100%
+  );
+}
+
+/* Estilos para los métodos de contacto */
+.contact-method-button {
+  transition: all 0.2s ease;
+}
+
+.contact-method-button:hover {
+  transform: scale(1.02);
+}
+
+.contact-method-button.active {
+  background-color: rgb(var(--primary));
+  color: rgb(var(--primary-foreground));
+}
+
+/* Estilos para la información de contacto directo */
+.direct-contact-info {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary) / 0.05) 0%, 
+    rgb(var(--primary) / 0.02) 100%
+  );
+  border: 1px solid rgb(var(--primary) / 0.1);
+}
+
+/* Estilos para los botones de acción rápida */
+.quick-action-button {
+  transition: all 0.2s ease;
+}
+
+.quick-action-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para el botón de verificación */
+.verification-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Estilos para el botón de carga */
+.load-more-button {
+  transition: all 0.3s ease;
+}
+
+.load-more-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para el estado de carga */
+.loading-state {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Estilos para el estado vacío */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: rgb(var(--muted-foreground));
+}
+
+/* Estilos para la paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pagination-button {
+  transition: all 0.2s ease;
+}
+
+.pagination-button:hover {
+  transform: scale(1.05);
+}
+
+.pagination-button.active {
+  background-color: rgb(var(--primary));
+  color: rgb(var(--primary-foreground));
+}
+
+/* Estilos para el responsive */
+@media (max-width: 768px) {
+  .agent-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .agent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,24 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { BuyHeroSection } from "@/components/buy-hero-section"
-import { PropertyFilters } from "@/components/property-filters"
-import { BuyPropertyGrid } from "@/components/buy-property-grid"
-import { BuyingGuide } from "@/components/buying-guide"
-import { MapLayout } from "@/components/map-layout"
-import { Button } from "@/components/ui/button"
-import { MapIcon, Grid3X3, List } from "lucide-react"
-import { mockProperties } from "@/lib/mock-properties"
+import { useState } from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { BuyHeroSection } from "@/components/buy-hero-section";
+import { PropertyFilters } from "@/components/property-filters";
+import { BuyPropertyGrid } from "@/components/buy-property-grid";
+import { BuyingGuide } from "@/components/buying-guide";
+import { MapLayout } from "@/components/map-layout";
+import { Button } from "@/components/ui/button";
+import { MapIcon, Grid3X3, List } from "lucide-react";
+import { mockProperties } from "@/lib/mock-properties";
 
-type ViewMode = "grid" | "map" | "list"
+type ViewMode = "grid" | "map" | "list";
 
 export default function BuyPage() {
-  const [viewMode, setViewMode] = useState<ViewMode>("grid")
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
 
   // Filter properties for sale
-  const saleProperties = mockProperties.filter((property) => property.type === "sale")
+  const saleProperties = mockProperties.filter(
+    (property) => property.type === "sale"
+  );
 
   return (
     <main className="min-h-screen">
@@ -28,7 +30,9 @@ export default function BuyPage() {
       <div className="container mx-auto px-4 py-8">
         {/* View Toggle Controls */}
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">{saleProperties.length} Propiedades en Venta</h1>
+          <h1 className="text-2xl font-bold text-gray-900">
+            {saleProperties.length} Propiedades en Venta
+          </h1>
 
           <div className="flex items-center gap-2">
             <Button
@@ -81,5 +85,5 @@ export default function BuyPage() {
       <BuyingGuide />
       <Footer />
     </main>
-  )
+  );
 }

@@ -49,12 +49,12 @@ export function Header() {
               >
                 Vender
               </Link>
-              <a
-                href="#"
+              <Link
+                href="/agentes"
                 className="text-muted-foreground hover:text-primary font-medium transition-colors"
               >
                 Agentes
-              </a>
+              </Link>
             </nav>
 
             {/* Actions */}
@@ -115,13 +115,13 @@ export function Header() {
                   >
                     Vender
                   </Link>
-                  <a
-                    href="#"
+                  <Link
+                    href="/agentes"
                     className="block text-lg text-muted-foreground hover:text-primary font-medium transition-colors py-2"
                     onClick={closeMobileMenu}
                   >
                     Agentes
-                  </a>
+                  </Link>
                 </div>
               </nav>
 
