@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { RentHeroSection } from "@/components/rent-hero-section";
-import { RentalFilters } from "@/components/rental-filters";
-import { RentPropertyGrid } from "@/components/rent-property-grid";
-import { RentalGuide } from "@/components/rental-guide";
+import { PropertiesHeroSection } from "@/components/properties-hero-section";
+import { PropertiesFilters } from "@/components/properties-filters";
+import { PropertiesGrid } from "@/components/properties-grid";
+import { PropertiesList } from "@/components/properties-list";
+import { Pagination } from "@/components/pagination";
 import { MapLayout } from "@/components/map-layout";
 import { Button } from "@/components/ui/button";
 import { MapIcon, Grid3X3, List } from "lucide-react";
@@ -14,22 +15,40 @@ import { mockProperties } from "@/lib/mock-properties";
 
 type ViewMode = "grid" | "map" | "list";
 
-export default function RentPage() {
+export default function PropertiesPage() {
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
 
-  const rentalProperties = mockProperties.filter(
-    (property) => property.type === "rent"
-  );
+  const allProperties = mockProperties;
+
+  // Pagination logic
+  const totalPages = Math.ceil(allProperties.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProperties = allProperties.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleItemsPerPageChange = (newItemsPerPage: number) => {
+    setItemsPerPage(newItemsPerPage);
+    setCurrentPage(1); // Reset to first page when changing page size
+  };
+
+  console.log(allProperties);
 
   return (
     <main className="min-h-screen">
       <Header />
-      <RentHeroSection />
+      <PropertiesHeroSection />
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-900">
-            {rentalProperties.length} Alquileres Disponibles
+            {allProperties.length} Propiedades Disponibles
           </h1>
 
           <div className="flex items-center gap-2">
@@ -65,21 +84,34 @@ export default function RentPage() {
 
         {viewMode === "map" ? (
           <div className="h-[600px] rounded-lg border overflow-hidden">
-            <MapLayout properties={rentalProperties} />
+            <MapLayout properties={allProperties} />
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-8">
             <aside className="lg:w-1/4">
-              <RentalFilters />
+              <PropertiesFilters />
             </aside>
             <div className="lg:w-3/4">
-              <RentPropertyGrid />
+              {viewMode === "grid" ? (
+                <PropertiesGrid properties={currentProperties} />
+              ) : (
+                <PropertiesList properties={currentProperties} />
+              )}
+
+              {/* Pagination */}
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                totalItems={allProperties.length}
+                itemsPerPage={itemsPerPage}
+                onItemsPerPageChange={handleItemsPerPageChange}
+              />
             </div>
           </div>
         )}
       </div>
 
-      <RentalGuide />
       <Footer />
     </main>
   );

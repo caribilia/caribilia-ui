@@ -1,30 +1,17 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Heart, Bed, Bath, Square } from "lucide-react"
-import Image from "next/image"
-
-interface Property {
-  id: string
-  title: string
-  price: string
-  address: string
-  beds: number
-  baths: number
-  sqft: string
-  image: string
-  lat: number
-  lng: number
-  type: "sale" | "rent"
-}
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Heart, Bed, Bath, Square } from "lucide-react";
+import Image from "next/image";
+import { Property } from "@/lib/types";
 
 interface MapPropertyListProps {
-  properties: Property[]
-  selectedProperty?: string
-  onPropertySelect?: (propertyId: string) => void
-  onPropertyHover?: (propertyId: string | null) => void
+  properties: Property[];
+  selectedProperty?: string;
+  onPropertySelect?: (propertyId: string) => void;
+  onPropertyHover?: (propertyId: string | null) => void;
 }
 
 export function MapPropertyList({
@@ -36,7 +23,9 @@ export function MapPropertyList({
   return (
     <div className="h-full overflow-y-auto">
       <div className="p-4 border-b bg-white sticky top-0 z-10">
-        <h2 className="text-lg font-semibold text-gray-900">{properties.length} Properties Found</h2>
+        <h2 className="text-lg font-semibold text-gray-900">
+          {properties.length} Properties Found
+        </h2>
       </div>
 
       <div className="p-4 space-y-4">
@@ -44,7 +33,9 @@ export function MapPropertyList({
           <Card
             key={property.id}
             className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
-              selectedProperty === property.id ? "ring-2 ring-cyan-500 shadow-md" : ""
+              selectedProperty === property.id
+                ? "ring-2 ring-cyan-500 shadow-md"
+                : ""
             }`}
             onClick={() => onPropertySelect?.(property.id)}
             onMouseEnter={() => onPropertyHover?.(property.id)}
@@ -58,17 +49,30 @@ export function MapPropertyList({
                 height={200}
                 className="w-full h-48 object-cover rounded-t-lg"
               />
-              <Button variant="ghost" size="sm" className="absolute top-2 right-2 bg-white/80 hover:bg-white">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="absolute top-2 right-2 bg-white/80 hover:bg-white"
+              >
                 <Heart className="h-4 w-4" />
               </Button>
-              <Badge variant="secondary" className="absolute bottom-2 left-2 bg-white/90">
-                {property.type === "sale" ? "For Sale" : "For Rent"}
+              <Badge
+                variant="secondary"
+                className="absolute bottom-2 left-2 bg-white/90"
+              >
+                {property.type === "sale"
+                  ? "For Sale"
+                  : property.type === "rent"
+                  ? "For Rent"
+                  : "Vacational"}
               </Badge>
             </div>
 
             <div className="p-4">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-bold text-gray-900">{property.price}</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  {property.price}
+                </h3>
               </div>
 
               <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
@@ -92,5 +96,5 @@ export function MapPropertyList({
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -1,44 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { PropertyMap } from "./property-map"
-import { MapPropertyList } from "./map-property-list"
-
-interface Property {
-  id: string
-  title: string
-  price: string
-  address: string
-  beds: number
-  baths: number
-  sqft: string
-  image: string
-  lat: number
-  lng: number
-  type: "sale" | "rent"
-}
+import { useState } from "react";
+import MapComponent from "./properties-map-component";
+import { MapPropertyList } from "./map-property-list";
+import { Property } from "@/lib/types";
 
 interface MapLayoutProps {
-  properties: Property[]
-  defaultView?: "map" | "list"
+  properties: Property[];
+  defaultView?: "map" | "list";
 }
 
 export function MapLayout({ properties, defaultView = "map" }: MapLayoutProps) {
-  const [selectedProperty, setSelectedProperty] = useState<string>()
-  const [hoveredProperty, setHoveredProperty] = useState<string | null>(null)
-  const [showListView, setShowListView] = useState(defaultView === "list")
+  const [selectedProperty, setSelectedProperty] = useState<string>();
+  const [hoveredProperty, setHoveredProperty] = useState<string | null>(null);
+  const [showListView, setShowListView] = useState(defaultView === "list");
 
   const handlePropertySelect = (propertyId: string) => {
-    setSelectedProperty(propertyId)
-  }
+    setSelectedProperty(propertyId);
+  };
 
   const handlePropertyHover = (propertyId: string | null) => {
-    setHoveredProperty(propertyId)
-  }
+    setHoveredProperty(propertyId);
+  };
 
   const toggleView = () => {
-    setShowListView(!showListView)
-  }
+    console.log("toggleView");
+    setShowListView(!showListView);
+  };
 
   if (showListView) {
     return (
@@ -50,14 +38,14 @@ export function MapLayout({ properties, defaultView = "map" }: MapLayoutProps) {
           onPropertyHover={handlePropertyHover}
         />
       </div>
-    )
+    );
   }
 
   return (
     <div className="h-full flex">
       {/* Map View */}
       <div className="flex-1">
-        <PropertyMap
+        <MapComponent
           properties={properties}
           selectedProperty={selectedProperty || hoveredProperty || undefined}
           onPropertySelect={handlePropertySelect}
@@ -76,5 +64,5 @@ export function MapLayout({ properties, defaultView = "map" }: MapLayoutProps) {
         />
       </div>
     </div>
-  )
+  );
 }
