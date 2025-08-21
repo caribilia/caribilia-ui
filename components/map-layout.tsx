@@ -24,7 +24,6 @@ export function MapLayout({ properties, defaultView = "map" }: MapLayoutProps) {
   };
 
   const toggleView = () => {
-    console.log("toggleView");
     setShowListView(!showListView);
   };
 

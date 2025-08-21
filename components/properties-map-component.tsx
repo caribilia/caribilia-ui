@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useRef, useState } from "react";
 import { Property } from "@/lib/types";
 
 interface PropertiesMapComponentProps {
@@ -13,17 +11,6 @@ interface PropertiesMapComponentProps {
   onToggleView?: () => void;
 }
 
-// Fix for default markers in Leaflet
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-});
-
 export default function PropertiesMapComponent({
   properties,
   selectedProperty,
@@ -32,12 +19,44 @@ export default function PropertiesMapComponent({
   onToggleView,
 }: PropertiesMapComponentProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
-  const markersRef = useRef<L.Marker[]>([]);
+  const mapInstanceRef = useRef<any>(null);
+  const markersRef = useRef<any[]>([]);
+  const [isLeafletLoaded, setIsLeafletLoaded] = useState(false);
 
-  // Initialize map only once
+  // Dynamically import Leaflet only on client side
   useEffect(() => {
-    if (!mapRef.current || mapInstanceRef.current) return;
+    const loadLeaflet = async () => {
+      try {
+        const L = await import("leaflet");
+
+        // Fix for default markers in Leaflet
+        delete (L.Icon.Default.prototype as any)._getIconUrl;
+        L.Icon.Default.mergeOptions({
+          iconRetinaUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+          iconUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+        });
+
+        // Store Leaflet instance globally for this component
+        (window as any).LeafletInstance = L;
+        setIsLeafletLoaded(true);
+      } catch (error) {
+        console.error("Failed to load Leaflet:", error);
+      }
+    };
+
+    loadLeaflet();
+  }, []);
+
+  // Initialize map only once after Leaflet is loaded
+  useEffect(() => {
+    if (!isLeafletLoaded || !mapRef.current || mapInstanceRef.current) return;
+
+    const L = (window as any).LeafletInstance;
+    if (!L) return;
 
     // Initialize map with Santo Domingo as default center
     const map = L.map(mapRef.current).setView([18.4861, -69.9312], 10);
@@ -58,11 +77,14 @@ export default function PropertiesMapComponent({
       }
       markersRef.current = [];
     };
-  }, []); // Only run once on mount
+  }, [isLeafletLoaded]); // Run when Leaflet is loaded
 
   // Add/update markers when properties change
   useEffect(() => {
-    if (!mapInstanceRef.current) return;
+    if (!isLeafletLoaded || !mapInstanceRef.current) return;
+
+    const L = (window as any).LeafletInstance;
+    if (!L) return;
 
     // Clear existing markers
     markersRef.current.forEach((marker) => marker.remove());
@@ -124,11 +146,19 @@ export default function PropertiesMapComponent({
     if (properties.length > 0 && bounds.isValid() && mapInstanceRef.current) {
       mapInstanceRef.current.fitBounds(bounds, { padding: [20, 20] });
     }
-  }, [properties]); // Only run when properties change
+  }, [properties, isLeafletLoaded]); // Run when properties change or Leaflet is loaded
 
   // Update marker styles when selection changes (without recreating markers)
   useEffect(() => {
-    if (!mapInstanceRef.current || markersRef.current.length === 0) return;
+    if (
+      !isLeafletLoaded ||
+      !mapInstanceRef.current ||
+      markersRef.current.length === 0
+    )
+      return;
+
+    const L = (window as any).LeafletInstance;
+    if (!L) return;
 
     markersRef.current.forEach((marker, index) => {
       const property = properties[index];
@@ -161,7 +191,15 @@ export default function PropertiesMapComponent({
         marker.setIcon(customIcon);
       }
     });
-  }, [selectedProperty, properties]); // Run when selection or properties change
+  }, [selectedProperty, properties, isLeafletLoaded]); // Run when selection, properties, or Leaflet loading changes
+
+  if (!isLeafletLoaded) {
+    return (
+      <div className="relative h-full flex items-center justify-center">
+        <div className="text-gray-500">Cargando mapa...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative h-full">

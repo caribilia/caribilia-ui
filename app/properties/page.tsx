@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PropertiesHeroSection } from "@/components/properties-hero-section";
@@ -19,8 +19,14 @@ export default function PropertiesPage() {
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [isClient, setIsClient] = useState(false);
 
   const allProperties = mockProperties;
+
+  // Check if component is hydrated on client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Pagination logic
   const totalPages = Math.ceil(allProperties.length / itemsPerPage);
@@ -37,8 +43,6 @@ export default function PropertiesPage() {
     setItemsPerPage(newItemsPerPage);
     setCurrentPage(1); // Reset to first page when changing page size
   };
-
-  console.log(allProperties);
 
   return (
     <main className="min-h-screen">
@@ -82,9 +86,13 @@ export default function PropertiesPage() {
           </div>
         </div>
 
-        {viewMode === "map" ? (
+        {viewMode === "map" && isClient ? (
           <div className="h-[600px] rounded-lg border overflow-hidden">
             <MapLayout properties={allProperties} />
+          </div>
+        ) : viewMode === "map" ? (
+          <div className="h-[600px] rounded-lg border overflow-hidden flex items-center justify-center">
+            <div className="text-gray-500">Cargando mapa...</div>
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-8">
